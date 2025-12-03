@@ -11,7 +11,7 @@ viaCep.addEventListener("click", (e)=>{
     let localidade = document.getElementById("localidade")
     let uf = document.getElementById("uf")
 
-    fetch(`http://viacep.com.br/ws/${cep}/json/ `)
+    fetch(`https://viacep.com.br/ws/${cep}/json/ `)
     .then(resp => resp.json())
     .then(dados => {
         console.log(dados)
