@@ -19,7 +19,8 @@ button.addEventListener("click", (e)=>{
     })
     .then(resp => resp.json())
     .then(dados =>{
-        res.innerHTML = dados.message
+        if(dados.token){
+                    res.innerHTML = dados.message
 
         sessionStorage.setItem("token", dados.token)
         sessionStorage.setItem("nome", dados.nome)
@@ -28,6 +29,10 @@ button.addEventListener("click", (e)=>{
         setTimeout(()=>{
                 window.location.href = "../../index.html"
             }, 1000)
+        }else{
+            res.innerHTML = dados.message
+            res.innerHTML = dados.error
+        }
     })
     .catch(err =>{
         console.error("Erro ao efetuar o login do usuario: ", err)
